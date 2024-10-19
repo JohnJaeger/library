@@ -92,3 +92,30 @@ h5{
 h6{
     font-size: 2rem;
 }
+
+:root{
+    width: 100vw;
+    height: 100vh;
+}
+
+body{
+    display: grid;
+    grid-template: 1fr 4fr / 1fr;
+    grid-template-areas: "header"
+                         "main  ";
+    gap: 16px;
+}
+
+body > header{
+    display: flex;
+    grid-area: header;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+body > main{
+    grid-area: main;
+    border: 1px solid black;
+    padding: 32px 64px 32px 64px;
+}
