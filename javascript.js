@@ -1,6 +1,6 @@
 const library = {
     books: [],
-    addBook: function(){
+    addBook: function(title, author, pages, haveRead){
         if (typeof title !== 'string') {
             throw new Error('title must be a string!');
         }
@@ -13,7 +13,7 @@ const library = {
         if (typeof haveRead !== 'boolean') {
             throw new Error('haveRead must be a boolean!');
         }
-        library.books.push(new Book(title, author, pages, haveRead));
+        this.books.push(new Book(title, author, pages, haveRead));
     }
 };
 
