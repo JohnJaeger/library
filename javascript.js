@@ -27,3 +27,19 @@ function Book(title, author, pages, haveRead){
         this.haveRead = haveRead;
     }
 }
+
+function addBookToLibrary(title, author, pages, haveRead){
+    if (typeof title !== 'string') {
+        throw new Error('title must be a string!');
+    }
+    if (typeof author !== 'string') {
+        throw new Error('author must be a string!');
+    }
+    if (typeof pages !== 'number') {
+        throw new Error('pages must be a number!');
+    }
+    if (typeof haveRead !== 'boolean') {
+        throw new Error('haveRead must be a boolean!');
+    }
+    myLibrary.push(new Book(title, author, pages, haveRead));
+}
