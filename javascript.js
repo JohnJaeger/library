@@ -5,12 +5,12 @@ myLibrary.push(new Book("Moby-Dick", 635, false));
 myLibrary.push(new Book("1984", 368, true));
 myLibrary.push(new Book("The Odyssey", 416, false));
 
-function Book(name, author, pages, haveRead){
+function Book(title, author, pages, haveRead){
     if (!(new.target)){
         throw new Error('function must be used with new keyword!');
     } else {
-        if (typeof name !== 'string') {
-            throw new Error('name must be a string!');
+        if (typeof title !== 'string') {
+            throw new Error('title must be a string!');
         }
         if (typeof author !== 'string') {
             throw new Error('author must be a string!');
@@ -21,7 +21,7 @@ function Book(name, author, pages, haveRead){
         if (typeof haveRead !== 'boolean') {
             throw new Error('haveRead must be a boolean!');
         }
-        this.name = name;
+        this.title = title;
         this.author = author;
         this.pages = pages;
         this.haveRead = haveRead;
