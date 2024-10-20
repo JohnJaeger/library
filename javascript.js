@@ -40,7 +40,7 @@ function Book(title, author, pages, haveRead){
     }
 }
 
-library.books.push(new Book("The Hobbit", 310, true));
-library.books.push(new Book("Moby-Dick", 635, false));
-library.books.push(new Book("1984", 368, true));
-library.books.push(new Book("The Odyssey", 416, false));
+library.books.push(new Book("The Hobbit", "J.R.R. Tolkien", 310, true));
+library.books.push(new Book("Moby-Dick", "Herman Melville", 635, false));
+library.books.push(new Book("1984", "George Orwell", 368, true));
+library.books.push(new Book("The Odyssey", "Homer", 416, false));
