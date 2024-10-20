@@ -94,15 +94,22 @@ h6{
 }
 
 :root{
+    --theme-color-1: #EDF1D6;
+    --theme-color-2: #9DC08B;
+    --theme-color-3: #609966;
+    --theme-color-4: #40513B;
     width: 100vw;
     height: 100vh;
 }
 
 body{
+    width: 100%;
+    height: 100%;
     display: grid;
     grid-template: max-content auto / 1fr;
     grid-template-areas: "header"
                          "main  ";
+    background-color: var(--theme-color-1);
 }
 
 body > header{
@@ -110,7 +117,8 @@ body > header{
     grid-area: header;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    background-color: var(--theme-color-2);
+    color: var(--theme-color-1);
 }
 
 body > main{
@@ -121,7 +129,6 @@ body > main{
     grid-auto-rows: max-content;
     justify-items: center;
     column-gap: 16px;
-    border: 1px solid black;
     padding: 32px 48px 32px 48px;
 }
 
@@ -149,12 +156,12 @@ main > .book > .book-information{
 .book-information > .book-title{
     font-size: 1.5rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--theme-color-1);
 }
 
 .book-information > .book-author{
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--theme-color-1);
 }
 
 .book-information > .book-pages{
@@ -171,5 +178,5 @@ main > .book > .book-information{
 }
 
 .book-information > .book-read-indicator.read{
-    fill: #5DBB63;
+    fill: #3CB043;
 }
