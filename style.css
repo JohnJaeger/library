@@ -116,13 +116,19 @@ body > header{
 
 body > main{
     grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19.5rem, 1fr)); /*min was calculated as width of .book element
+                                                                    + left margin + right margin*/
+    grid-auto-rows: max-content;
+    justify-items: center;
+    gap: 16px;
     border: 1px solid black;
-    padding: 0px 32px 0px 32px;
+    padding: 0px 48px 0px 48px;
 }
 
 main > .book{
     position: relative;
-    margin: 64px 32px 64px 32px;
+    margin: 32px 16px 32px 16px;
 }
 
 main > .book > .book-cover{
