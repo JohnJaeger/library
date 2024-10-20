@@ -117,5 +117,54 @@ body > header{
 body > main{
     grid-area: main;
     border: 1px solid black;
-    padding: 32px 64px 32px 64px;
+    padding: 0px 32px 0px 32px;
+}
+
+main > .book{
+    position: relative;
+    margin: 64px 32px 64px 32px;
+}
+
+main > .book > .book-cover{
+    width: 17.5rem;
+    height: auto;
+}
+
+main > .book > .book-information{
+    width: 17.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0rem;
+    padding: 7rem 2.75rem 2.75rem 2.75rem;
+}
+
+.book-information > .book-title{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.book-information > .book-author{
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.book-information > .book-pages{
+    position: absolute;
+    bottom: -1.5rem;
+}
+
+.book-information > .book-read-indicator{
+    width: 3.75rem;
+    position: absolute;
+    right: 0.75rem;
+    top: 3.5rem;
+    fill: #D3D3D3;
+}
+
+.book-information > .book-read-indicator.read{
+    fill: #5DBB63;
 }
