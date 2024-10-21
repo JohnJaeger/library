@@ -98,6 +98,21 @@ h6{
     --theme-color-2: #9DC08B;
     --theme-color-3: #609966;
     --theme-color-4: #40513B;
+    --drop-shadow:  drop-shadow(1px 1px hsl(0deg 0% 0% / 0.075))
+                    drop-shadow(2px 2px 2px hsl(0deg 0% 0% / 0.075))
+                    drop-shadow(4px 4px 4px hsl(0deg 0% 0% / 0.075))
+                    drop-shadow(8px 8px 8px hsl(0deg 0% 0% / 0.075))
+                    drop-shadow(16px 16px 16px hsl(0deg 0% 0% / 0.075));
+    --box-shadow:   1px 1px 1px hsl(0deg 0% 0% / 0.075),
+                    2px 2px 2px hsl(0deg 0% 0% / 0.075),
+                    4px 4px 4px hsl(0deg 0% 0% / 0.075),
+                    8px 8px 8px hsl(0deg 0% 0% / 0.075),
+                    16px 16px 16px hsl(0deg 0% 0% / 0.075);
+    --box-shadow-elevated:  2px 2px 2px hsl(0deg 0% 0% / 0.05),
+                            4px 4px 4px hsl(0deg 0% 0% / 0.05),
+                            8px 8px 8px hsl(0deg 0% 0% / 0.05),
+                            16px 16px 16px hsl(0deg 0% 0% / 0.05),
+                            32px 32px 32px hsl(0deg 0% 0% / 0.05);
     width: 100vw;
     height: 100vh;
 }
@@ -119,6 +134,8 @@ body > header{
     justify-content: center;
     background-color: var(--theme-color-2);
     color: var(--theme-color-1);
+    box-shadow: var(--box-shadow);
+    text-shadow: var(--box-shadow-elevated);
 }
 
 body > main{
@@ -140,6 +157,7 @@ main > .book{
 main > .book > .book-cover{
     width: 17.5rem;
     height: auto;
+    filter: var(--drop-shadow);
 }
 
 main > .book > .book-information{
@@ -157,11 +175,13 @@ main > .book > .book-information{
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--theme-color-1);
+    text-shadow: var(--box-shadow);
 }
 
 .book-information > .book-author{
     font-weight: 700;
     color: var(--theme-color-1);
+    text-shadow: var(--box-shadow);
 }
 
 .book-information > .book-pages{
