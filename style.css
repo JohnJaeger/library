@@ -227,3 +227,20 @@ main > .book > .book-information{
 .book-information > .book-read-indicator.read{
     fill: rgba(254, 250, 224, 1);
 }
+
+main > svg.add-book-button{
+    width: 7.5vw;
+    position: fixed;
+    bottom: 2vmin;
+    right: 2vmin;
+    fill: var(--theme-color-2);
+}
+
+main > svg.add-book-button:hover{
+    cursor: pointer;
+}
+
+#add-book-form > #cancel-button:hover,
+#add-book-form > #confirm-button:hover{
+    cursor: pointer;
+}

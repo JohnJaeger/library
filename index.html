@@ -12,18 +12,47 @@
         <h1>Library</h1>
     </header>
     <main>
-        <div class="book">
-            <img class="book-cover" src="SVG/book-cover.svg" alt="Default book cover">
-            <div class="book-information">
-                <span class="book-title">The Hobbit</span>
-                <span class="book-author">J.R.R. Tolkien</span>
-                <span class="book-pages">310 Pages</span>
-                <svg class="book-read-indicator read" viewBox="0 0 24 24">
-                    <path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"></path>
-                </svg>
-            </div>
-        </div>
-        <div class="add-book"></div>
+        <!-- The following commented out HTML serves as a reference when styling components added by javascript -->
+
+        <!-- <div class="book">
+                <img class="book-cover" src="SVG/book-cover.svg" alt="Default book cover">
+                <div class="book-information">
+                    <span class="book-title">The Hobbit</span>
+                    <span class="book-author">J.R.R. Tolkien</span>
+                    <span class="book-pages">310 Pages</span>
+                    <svg class="book-read-indicator read" viewBox="0 0 24 24">
+                        <path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"></path>
+                    </svg>
+                </div>
+            </div> -->
+            
+        <svg class='add-book-button' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Add Book</title>
+            <path d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M13,7H11V11H7V13H11V17H13V13H17V11H13V7Z" /></svg>
     </main>
+    <dialog id="add-book-dialog">
+        <form id="add-book-form">
+            <label for="title-input">Title:
+                <input id="title-input" type="text" name="title" autofocus>
+            </label>
+            <label for="author-input">Author:
+                <input id="author-input" type="text" name="author">
+            </label>
+            <label for="pages-input">Pages:
+                <input id="pages-input" type="text" name="pages">
+            </label>
+            <fieldset id="have-read-fieldset">
+                <legend id="have-read-legend">Have you already read this book?
+                    <label for="have-read-no-input">No
+                        <input id="have-read-no-input" type="radio" name="have-read" value="0">
+                    </label>
+                    <label for="have-read-yes-input">Yes
+                        <input id="have-read-yes-input" type="radio" name="have-read" value="1">
+                    </label>
+                </legend>
+            </fieldset>
+            <button id="cancel-button">Cancel</button>
+            <button id="confirm-button">Confirm</button>
+        </form>
+    </dialog>
 </body>
 </html>

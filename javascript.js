@@ -17,11 +17,11 @@ const library = {
     },
     updateLibrary: function(){
         const main = document.querySelector('main');
-        const addBook = document.querySelector('.add-book');
+        const addBookButton = document.querySelector('.add-book-button');
     
         //Remove book html elements
         Array.from(main.children)
-            .filter(child => child !== addBook)
+            .filter(child => child !== addBookButton)
             .forEach(child => child.remove());
 
         //Iterate through books and add book html elements
@@ -63,10 +63,56 @@ const library = {
             bookInformation.appendChild(bookReadIndicator);
             book.appendChild(bookCover);
             book.appendChild(bookInformation);
-            main.insertBefore(book, addBook);
+            main.insertBefore(book, addBookButton);
         }
     }
 };
+
+const addBookDialogComponents = {
+    elements: Object.freeze({
+        addBookButton: document.querySelector(".add-book-button"),
+        dialog: document.querySelector("#add-book-dialog"),
+        form: document.querySelector("#add-book-form"),
+        titleInput: document.querySelector("#title-input"),
+        authorInput: document.querySelector("#author-input"),
+        pagesInput: document.querySelector("#pages-input"),
+        haveReadYesInput: document.querySelector("#have-read-yes-input"),
+        haveReadNoInput: document.querySelector("#have-read-no-input"),
+        cancelButton: document.querySelector("#cancel-button"),
+        confirmButton: document.querySelector("#confirm-button")
+    }),
+    showDialog: function() {
+        this.elements.dialog.showModal();
+        
+    },
+    closeDialog: function(event) {
+        event.preventDefault();
+        this.elements.form.reset();
+        this.elements.dialog.close();
+    },
+    confirmDialog: function(event) {
+        event.preventDefault();
+
+        const titleInputValue = this.elements.titleInput.value;
+        const authorInputValue = this.elements.authorInput.value;
+        const pagesInputValue = Number(this.elements.pagesInput.value);
+        const haveReadInputValue = Boolean(Number(document.querySelector('input[name="have-read"]:checked').value));
+                                    //HTML value is string by default with a value of either "0" or "1". This needs to 
+                                    //be changed to a number before it can be changed to a boolean otherwise it will
+                                    //always be true.
+
+        library.addBook(titleInputValue, authorInputValue, pagesInputValue, haveReadInputValue);
+
+        library.updateLibrary();
+
+        this.closeDialog(event);
+    },
+    initializeEventListeners: function() {
+        this.elements.addBookButton.addEventListener("click", this.showDialog.bind(this));
+        this.elements.cancelButton.addEventListener("click", this.closeDialog.bind(this));
+        this.elements.confirmButton.addEventListener("click", this.confirmDialog.bind(this));
+    }
+}
 
 function Book(title, author, pages, haveRead){
     if (!(new.target)){
@@ -95,3 +141,7 @@ library.books.push(new Book("The Hobbit", "J.R.R. Tolkien", 310, true));
 library.books.push(new Book("Moby-Dick", "Herman Melville", 635, false));
 library.books.push(new Book("1984", "George Orwell", 368, true));
 library.books.push(new Book("The Odyssey", "Homer", 416, false));
+
+library.updateLibrary();
+
+addBookDialogComponents.initializeEventListeners();
