@@ -94,10 +94,8 @@ h6{
 }
 
 :root{
-    --theme-color-1: #EDF1D6;
-    --theme-color-2: #9DC08B;
-    --theme-color-3: #609966;
-    --theme-color-4: #40513B;
+    --theme-color-1: #FEFAE0;
+    --theme-color-2: #626F47;
     --drop-shadow:  drop-shadow(1px 1px hsl(0deg 0% 0% / 0.075))
                     drop-shadow(2px 2px 2px hsl(0deg 0% 0% / 0.075))
                     drop-shadow(4px 4px 4px hsl(0deg 0% 0% / 0.075))
@@ -194,9 +192,9 @@ main > .book > .book-information{
     position: absolute;
     right: 0.75rem;
     top: 3.5rem;
-    fill: #D3D3D3;
+    fill: rgba(254, 250, 224, 0.3);
 }
 
 .book-information > .book-read-indicator.read{
-    fill: #3CB043;
+    fill: rgba(254, 250, 224, 1);
 }
