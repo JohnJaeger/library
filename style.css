@@ -1,3 +1,30 @@
+@font-face {
+    font-family: 'Amita';
+    src: url('fonts/amita-regular-webfont.woff2') format('woff2'),
+         url('fonts/amita-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amita';
+    src: url('fonts/amita-bold-webfont.woff2') format('woff2'),
+         url('fonts/amita-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('fonts/comfortaa-variablefont_wght-webfont.woff2') format('woff2'),
+         url('fonts/comfortaa-variablefont_wght-webfont.woff') format('woff');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 /*
 Eric Meyer's CSS Reset (HTML5)
 http://meyerweb.com/eric/tools/css/reset/ 
@@ -113,6 +140,7 @@ h6{
                             32px 32px 32px hsl(0deg 0% 0% / 0.05);
     width: 100vw;
     height: 100vh;
+    font-family: 'Amita', Georgia, 'Times New Roman', Times, serif;
 }
 
 body{
@@ -134,6 +162,7 @@ body > header{
     color: var(--theme-color-1);
     box-shadow: var(--box-shadow);
     text-shadow: var(--box-shadow-elevated);
+    font-family: 'Comfortaa', Georgia, 'Times New Roman', Times, serif;
 }
 
 body > main{
