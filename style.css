@@ -240,7 +240,31 @@ main > svg.add-book-button:hover{
     cursor: pointer;
 }
 
-#add-book-form > #cancel-button:hover,
-#add-book-form > #confirm-button:hover{
+main > svg.add-book-button:active{
+    opacity: 0.7;
+}
+
+dialog{
+    width: max-content;
+    border: var(--theme-color-2) 2px solid;
+    border-radius: 8px;
+}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+form{
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+}
+
+form label:not(:has(input[type='radio'])){
+    display: flex;
+    justify-content: space-between;
+}
+
+form button:hover{
     cursor: pointer;
 }
