@@ -87,13 +87,6 @@ const library = {
             main.insertBefore(book, addBookButton);
         }
     },
-    initializeEventListeners: function(){
-        const main = document.querySelector('main');
-
-        main.addEventListener('click', (event) => {
-            this.deleteBook(event);
-        });
-    }
 };
 
 const addBookDialogComponents = {
@@ -133,10 +126,30 @@ const addBookDialogComponents = {
 
         this.closeDialog(event);
     },
-    initializeEventListeners: function() {
-        this.elements.addBookButton.addEventListener("click", this.showDialog.bind(this));
-        this.elements.cancelButton.addEventListener("click", this.closeDialog.bind(this));
-        this.elements.confirmButton.addEventListener("click", this.confirmDialog.bind(this));
+}
+
+const eventListeners = {
+    initialize: function(){
+        const body = document.querySelector('body');
+
+        body.addEventListener('click', (event) => {
+            switch (true){
+                case (event.target === addBookDialogComponents.elements.addBookButton ||
+                event.target.parentElement === addBookDialogComponents.elements.addBookButton):
+                    addBookDialogComponents.showDialog();
+                    break;
+                case (event.target === addBookDialogComponents.elements.cancelButton):
+                    addBookDialogComponents.closeDialog(event);
+                    break;
+                case (event.target === addBookDialogComponents.elements.confirmButton):
+                    addBookDialogComponents.confirmDialog(event);
+                    break;
+                case (event.target.classList.contains('delete-book-button') ||
+                event.target.parentElement.classList.contains('delete-book-button')):
+                    library.deleteBook(event);
+                    break;
+            }
+        });
     }
 }
 
@@ -180,5 +193,4 @@ library.books.push(new Book("The Odyssey", "Homer", 416, false));
 
 library.updateLibrary();
 
-library.initializeEventListeners();
-addBookDialogComponents.initializeEventListeners();
+eventListeners.initialize();
