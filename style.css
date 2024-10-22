@@ -223,6 +223,7 @@ main > .book > .book-information{
     right: 0.75rem;
     top: 3.5rem;
     fill: rgba(254, 250, 224, 0.3);
+    filter: var(--drop-shadow);
 }
 
 .book-information > .book-read-indicator:hover{
@@ -254,6 +255,13 @@ main > svg.add-book-button{
     bottom: 2vmin;
     right: 2vmin;
     fill: var(--theme-color-2);
+    /* Had to use a custom drop shadow utilizing vmin units rather than pixels. The width of this element doesn't scale when zooming or
+    changing browser font size, so its drop shadow shouldn't scale.*/
+    filter: drop-shadow(0.1vmin 0.1vmin hsl(0deg 0% 0% / 0.075))
+            drop-shadow(0.2vmin 0.2vmin 0.2vmin hsl(0deg 0% 0% / 0.075))
+            drop-shadow(0.4vmin 0.4vmin 0.4vmin hsl(0deg 0% 0% / 0.075))
+            drop-shadow(0.8vmin 0.8vmin 0.8vmin hsl(0deg 0% 0% / 0.075))
+            drop-shadow(1.6vmin 1.6vmin 1.6vmin hsl(0deg 0% 0% / 0.075))
 }
 
 main > svg.add-book-button:hover{
