@@ -44,8 +44,10 @@ const library = {
             const bookAuthor = document.createElement('span');
             const bookPages = document.createElement('span');
             const bookReadIndicator = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            const bookReadIndicatorTitle = document.createElementNS('http://www.w3.org/2000/svg', 'title');
             const bookReadIndicatorPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
             const deleteBookButton = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            const deleteBookButtonTitle = document.createElementNS('http://www.w3.org/2000/svg', 'title');
             const deleteBookButtonPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     
             book.classList.add('book');
@@ -74,8 +76,12 @@ const library = {
             bookTitle.textContent = object.title;
             bookAuthor.textContent = object.author;
             bookPages.textContent = object.pages + " Pages";
+            bookReadIndicatorTitle.textContent = "Toggle Read";
+            deleteBookButtonTitle.textContent = "Delete Book";
     
+            bookReadIndicator.appendChild(bookReadIndicatorTitle);
             bookReadIndicator.appendChild(bookReadIndicatorPath);
+            deleteBookButton.appendChild(deleteBookButtonTitle);
             deleteBookButton.appendChild(deleteBookButtonPath);
             bookInformation.appendChild(bookTitle);
             bookInformation.appendChild(bookAuthor);

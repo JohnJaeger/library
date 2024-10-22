@@ -225,6 +225,10 @@ main > .book > .book-information{
     fill: rgba(254, 250, 224, 0.3);
 }
 
+.book-information > .book-read-indicator:hover{
+    cursor: pointer;
+}
+
 .book-information > .book-read-indicator.read{
     fill: rgba(254, 250, 224, 1);
 }
