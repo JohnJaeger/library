@@ -240,10 +240,6 @@ main > svg.add-book-button:hover{
     cursor: pointer;
 }
 
-main > svg.add-book-button:active{
-    opacity: 0.7;
-}
-
 dialog{
     width: max-content;
     border: var(--theme-color-2) 2px solid;
