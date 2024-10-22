@@ -229,6 +229,21 @@ main > .book > .book-information{
     fill: rgba(254, 250, 224, 1);
 }
 
+.book-information > .delete-book-button{
+    width: 2rem;
+    position: absolute;
+    right: 0.75rem;
+    bottom: 1rem;
+    fill: var(--theme-color-1);
+    transition: fill 0.5s ease-in-out;
+    filter: var(--drop-shadow);
+}
+
+.book-information > .delete-book-button:hover{
+    cursor: pointer;
+    fill: #E3242B;
+}
+
 main > svg.add-book-button{
     width: 7.5vw;
     position: fixed;

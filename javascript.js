@@ -15,6 +15,17 @@ const library = {
         }
         this.books.push(new Book(title, author, pages, haveRead));
     },
+    deleteBook: function(event) {
+        if (event.target.classList.contains('delete-book-button')){
+            const libraryIndex = event.target.parentElement.parentElement.dataset.index;
+            this.books.splice(libraryIndex, 1);
+        //without else if statement path will sometimes block svg from being the target
+        } else if (event.target.parentElement.classList.contains('delete-book-button')){
+            const libraryIndex = event.target.parentElement.parentElement.parentElement.dataset.index;
+            this.books.splice(libraryIndex, 1);
+        }
+        this.updateLibrary();
+    },
     updateLibrary: function(){
         const main = document.querySelector('main');
         const addBookButton = document.querySelector('.add-book-button');
@@ -33,7 +44,9 @@ const library = {
             const bookAuthor = document.createElement('span');
             const bookPages = document.createElement('span');
             const bookReadIndicator = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            const bookReadIndicatorPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            const deleteBookButton = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            const deleteBookButtonPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     
             book.classList.add('book');
             bookCover.classList.add('book-cover');
@@ -42,29 +55,44 @@ const library = {
             bookAuthor.classList.add('book-author');
             bookPages.classList.add('book-pages');
             bookReadIndicator.classList.add('book-read-indicator');
+            deleteBookButton.classList.add('delete-book-button');
     
             if (object.haveRead === true){
                 bookReadIndicator.classList.add('read');
             }
-    
+            
+            const libraryIndex = this.books.indexOf(object);
+
+            book.setAttribute('data-index', libraryIndex)
             bookCover.setAttribute('src', 'SVG/book-cover.svg');
             bookCover.setAttribute('alt', 'Default book cover');
             bookReadIndicator.setAttribute('viewBox', '0 0 24 24');
-            path.setAttribute('d', 'M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z');
+            bookReadIndicatorPath.setAttribute('d', 'M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z');
+            deleteBookButton.setAttribute('viewBox', '0 0 24 24');
+            deleteBookButtonPath.setAttribute('d', 'M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z');
     
             bookTitle.textContent = object.title;
             bookAuthor.textContent = object.author;
             bookPages.textContent = object.pages + " Pages";
     
-            bookReadIndicator.appendChild(path);
+            bookReadIndicator.appendChild(bookReadIndicatorPath);
+            deleteBookButton.appendChild(deleteBookButtonPath);
             bookInformation.appendChild(bookTitle);
             bookInformation.appendChild(bookAuthor);
             bookInformation.appendChild(bookPages);
             bookInformation.appendChild(bookReadIndicator);
+            bookInformation.appendChild(deleteBookButton);
             book.appendChild(bookCover);
             book.appendChild(bookInformation);
             main.insertBefore(book, addBookButton);
         }
+    },
+    initializeEventListeners: function(){
+        const main = document.querySelector('main');
+
+        main.addEventListener('click', (event) => {
+            this.deleteBook(event);
+        });
     }
 };
 
@@ -152,4 +180,5 @@ library.books.push(new Book("The Odyssey", "Homer", 416, false));
 
 library.updateLibrary();
 
+library.initializeEventListeners();
 addBookDialogComponents.initializeEventListeners();
