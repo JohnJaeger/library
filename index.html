@@ -32,18 +32,18 @@
     <dialog id="add-book-dialog">
         <form id="add-book-form">
             <label for="title-input">Title:
-                <input id="title-input" type="text" name="title" autofocus>
+                <input id="title-input" type="text" name="title" maxlength="40" autofocus>
             </label>
             <label for="author-input">Author:
-                <input id="author-input" type="text" name="author">
+                <input id="author-input" type="text" name="author" maxlength="25" >
             </label>
             <label for="pages-input">Pages:
-                <input id="pages-input" type="text" name="pages">
+                <input id="pages-input" type="text" name="pages" maxlength="7">
             </label>
             <fieldset id="have-read-fieldset">
                 <legend id="have-read-legend">Have you already read this book?
                     <label for="have-read-no-input">No
-                        <input id="have-read-no-input" type="radio" name="have-read" value="0">
+                        <input id="have-read-no-input" type="radio" name="have-read" checked value="0">
                     </label>
                     <label for="have-read-yes-input">Yes
                         <input id="have-read-yes-input" type="radio" name="have-read" value="1">

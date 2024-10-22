@@ -132,6 +132,16 @@ function Book(title, author, pages, haveRead){
         this.author = author;
         this.pages = pages;
         this.haveRead = haveRead;
+
+        if (this.title === ""){
+            this.title = "Unknown";
+        }
+        if (this.author === ""){
+            this.author = "Unknown";
+        }
+        if (Number.isNaN(this.pages) === true || Number(this.pages) === 0){
+            this.pages = "Unknown";
+        }
     }
 }
 

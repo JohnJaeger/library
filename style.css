@@ -196,6 +196,7 @@ main > .book > .book-information{
     position: absolute;
     top: 0rem;
     padding: 7rem 2.75rem 2.75rem 2.75rem;
+    word-break: break-word;
 }
 
 .book-information > .book-title{
