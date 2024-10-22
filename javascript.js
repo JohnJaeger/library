@@ -76,8 +76,6 @@ const addBookDialogComponents = {
         titleInput: document.querySelector("#title-input"),
         authorInput: document.querySelector("#author-input"),
         pagesInput: document.querySelector("#pages-input"),
-        haveReadYesInput: document.querySelector("#have-read-yes-input"),
-        haveReadNoInput: document.querySelector("#have-read-no-input"),
         cancelButton: document.querySelector("#cancel-button"),
         confirmButton: document.querySelector("#confirm-button")
     }),
