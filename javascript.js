@@ -144,6 +144,14 @@ const eventListeners = {
                 case (event.target === addBookDialogComponents.elements.confirmButton):
                     addBookDialogComponents.confirmDialog(event);
                     break;
+                case event.target.classList.contains('book-read-indicator'):
+                    event.target.classList.toggle('read');
+                    library.books[event.target.parentElement.parentElement.dataset.index].toggleRead();
+                    break;
+                case event.target.parentElement.classList.contains('book-read-indicator'):
+                    event.target.parentElement.classList.toggle('read');
+                    library.books[event.target.parentElement.parentElement.parentElement.dataset.index].toggleRead();
+                    break;
                 case (event.target.classList.contains('delete-book-button') ||
                 event.target.parentElement.classList.contains('delete-book-button')):
                     library.deleteBook(event);
@@ -184,6 +192,10 @@ function Book(title, author, pages, haveRead){
             this.pages = "Unknown";
         }
     }
+}
+
+Book.prototype.toggleRead = function(){
+    this.haveRead = !this.haveRead;
 }
 
 library.books.push(new Book("The Hobbit", "J.R.R. Tolkien", 310, true));
