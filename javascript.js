@@ -167,10 +167,13 @@ const eventListeners = {
     }
 }
 
-function Book(title, author, pages, haveRead){
-    if (!(new.target)){
-        throw new Error('function must be used with new keyword!');
-    } else {
+class Book{
+    title;
+    author;
+    pages;
+    haveRead;
+
+    constructor(title, author, pages, haveRead){
         if (typeof title !== 'string') {
             throw new Error('title must be a string!');
         }
@@ -198,10 +201,10 @@ function Book(title, author, pages, haveRead){
             this.pages = "Unknown";
         }
     }
-}
 
-Book.prototype.toggleRead = function(){
-    this.haveRead = !this.haveRead;
+    toggleRead(){
+        this.haveRead = !this.haveRead;
+    }
 }
 
 library.books.push(new Book("The Hobbit", "J.R.R. Tolkien", 310, true));
